@@ -2,19 +2,24 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
-import { toast } from "sonner";
+import { useNavigate } from 'react-router-dom';
+// import { toast } from "sonner"; // Toast is no longer needed here directly
 
 interface AddCreditButtonProps {
-  onClick: () => void;
+  onClick?: () => void; // Kept onClick for potential other uses, but primary action is navigation
 }
 
 const AddCreditButton: React.FC<AddCreditButtonProps> = ({ onClick }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    onClick();
-    toast.info("Redirecionando para adicionar crédito...", {
-      description: "Esta funcionalidade será implementada em breve."
-    });
-  }
+    if (onClick) {
+      onClick();
+    }
+    navigate('/adicionar-credito');
+    // toast.info("Redirecionando para adicionar crédito..."); // Removed as navigation is direct
+  };
+
   return (
     <Button
       variant="outline"
