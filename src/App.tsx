@@ -6,7 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import SearchPhotos from "./pages/SearchPhotos"; // Import the new page
+import SearchPhotos from "./pages/SearchPhotos";
+import CartPage from "./pages/CartPage"; // Import the new CartPage
 
 const queryClient = new QueryClient();
 
@@ -18,9 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/carrinho" element={<p className="flex min-h-screen items-center justify-center">Página do Carrinho em construção</p>} />
+          <Route path="/carrinho" element={<CartPage />} /> {/* Updated route */}
           <Route path="/eventos" element={<p className="flex min-h-screen items-center justify-center">Página de Eventos em construção</p>} />
-          <Route path="/fotos" element={<SearchPhotos />} /> {/* Updated route */}
+          <Route path="/fotos" element={<SearchPhotos />} />
           <Route path="/historico" element={<p className="flex min-h-screen items-center justify-center">Página de Histórico em construção</p>} />
           <Route path="/fotografo" element={<p className="flex min-h-screen items-center justify-center">Área do Fotógrafo em construção</p>} />
           <Route path="/perfil" element={<p className="flex min-h-screen items-center justify-center">Página de Perfil em construção</p>} />
@@ -33,4 +34,3 @@ const App = () => (
 );
 
 export default App;
-
