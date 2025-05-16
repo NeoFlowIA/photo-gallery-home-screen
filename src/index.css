@@ -14,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 351 78% 48%;
+    --primary: 351 78% 48%; /* #D91B1A */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 262 68% 51%;
+    --secondary: 262 68% 51%; /* #572ED5 - Secondary Brand */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 6% 96%;
+    --accent: 210 6% 96%; /* #ECF1F4 */
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,11 +35,12 @@
 
     --radius: 0.5rem;
 
-    --dark: 251 75% 10%;
-    --text: 240 25% 29%;
-    --subtle-text: 60 22% 68%;
-    --light: 210 100% 99%;
-    --success: 153 71% 50%;
+    --dark: 251 75% 10%; /* #0E062C */
+    --text: 240 25% 29%; /* #3F3F55 */
+    --subtle-text: 210 14% 70%; /* Updated #BCBCA1 to be more readable with current text */
+    /* Original --subtle-text: 60 22% 68%; for #BCBCA1 */
+    --light: 210 100% 99%; /* #FAFCFE */
+    --success: 153 71% 50%; /* #2FD089 */
   }
 
   @font-face {
@@ -70,6 +71,10 @@
   .button-text {
     @apply text-[10px] font-bold tracking-[0.03em] text-text;
   }
+
+  .caption-text { /* Added based on design system */
+    @apply text-[10px] font-bold tracking-[0.03em] text-text;
+  }
   
   .body-text {
     @apply text-base font-medium text-text;
@@ -78,4 +83,15 @@
   .gradient-bg {
     @apply bg-gradient-to-b from-light to-accent/30;
   }
+
+  /* Shake animation */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
 }
+
